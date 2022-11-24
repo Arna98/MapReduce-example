@@ -51,6 +51,22 @@ public class Main {
         String url;
         HashMap<String, Integer> keyValue = new HashMap<String, Integer>();
 
-
+        try{
+            // Read text file
+            BufferedReader br = new BufferedReader(new FileReader("output.txt"));
+            // Write to final output file
+            FileWriter finalOutput = new FileWriter("finalOutput.txt", true);
+            // Get the key(url) of the buffered reader
+            while((url = br.readLine()) != null){
+                if(keyValue.containsKey(url)){
+                    keyValue.put(url, keyValue.get(url) + 1);
+                }else{
+                    keyValue.put(url, 1);
+                }
+            }
+            br.close();
+        } catch(IOException e) {
+            e.printStackTrace();
+        }
     }
 }
