@@ -1,7 +1,4 @@
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -65,6 +62,8 @@ public class Main {
                 }
             }
             br.close();
+            // Remove the intermediate output
+            rmOutput();
             // Save and write to final output file
             for (String key : keyValue.keySet()) {
                 finalOutput.write(String.format("<%s, %d>\n", key, keyValue.get(key)));
@@ -72,6 +71,14 @@ public class Main {
             finalOutput.close();
         } catch(IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    // Removing the intermediate output produced by the mapper method
+    private static void rmOutput(){
+        File output = new File("output.txt");
+        if (output.exists()){
+            output.delete();
         }
     }
 }
