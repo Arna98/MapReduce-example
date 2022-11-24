@@ -37,7 +37,7 @@ public class Main {
                     if (matcherUrl.find()) {
                         // Clear data and write to output file
                         String url = word.replaceAll("(^https?://)?(www\\.)?","");
-                        output.write(String.format("%s, %d\n", url, 1));
+                        output.write(String.format("%s\n", url));
                     }
                 }
             }
@@ -48,9 +48,9 @@ public class Main {
 
     static void reducer(){
         // Definition of variables
-        String line;
-        String[] words;
+        String url;
         HashMap<String, Integer> keyValue = new HashMap<String, Integer>();
+
 
     }
 }
