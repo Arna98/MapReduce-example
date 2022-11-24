@@ -38,6 +38,8 @@ public class Main {
                     }
                 }
             }
+            br.close();
+            output.close();
         } catch(IOException e) {
             e.printStackTrace();
         }
