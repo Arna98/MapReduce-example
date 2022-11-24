@@ -56,7 +56,7 @@ public class Main {
             BufferedReader br = new BufferedReader(new FileReader("output.txt"));
             // Write to final output file
             FileWriter finalOutput = new FileWriter("finalOutput.txt", true);
-            // Get the key(url) of the buffered reader
+            // Get the key(url) of the buffered reader to perform reduction operations
             while((url = br.readLine()) != null){
                 if(keyValue.containsKey(url)){
                     keyValue.put(url, keyValue.get(url) + 1);
