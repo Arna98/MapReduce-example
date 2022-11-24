@@ -21,6 +21,28 @@ public class Main {
         Pattern regexUrl = Pattern.compile(
                 "^https?://(www\\.)?[-a-zA-Z0-9]{1,256}\\.[a-zA-Z0-9]{1,6}\\b([a-zA-Z0-9()@:%_\\+.~#?&\\/=]*)$"
         );
+
+        try{
+            // Read csv file
+            BufferedReader br = new BufferedReader(new FileReader("input.csv"));
+            // Write to output file
+            FileWriter output = new FileWriter("output.txt", true);
+            // Get the data of each line of the buffered reader
+            while((line = br.readLine()) != null){
+                words = line.split(tokenize);
+                // Analyze and review each word
+                for (String word : words) {
+                    Matcher matcherUrl = regexUrl.matcher(word);
+                    if (matcherUrl.find()) {
+                        // Clear data and write to output file
+                        String url = word.replaceAll("(^https?://)?(www\\.)?","");
+                        output.write(String.format("%s, %d\n", url, 1));
+                    }
+                }
+            }
+        } catch(IOException e) {
+            e.printStackTrace();
+        }
     }
 
     static void reducer(String[] input){
