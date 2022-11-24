@@ -1,28 +1,24 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Main {
     public static void main(String[] args) {
-        String[] str = mapper();
-        reducer(str);
+        mapper();
+        //reducer();
     }
-    static String[] mapper(){
-        String[] word;
-        String tokenize = "\\s+";
-        System.out.print("Enter Input: ");
-        Scanner input = new Scanner(System.in);
-        String str = input.nextLine().strip().toLowerCase();
+    static void mapper(){
+        // Definition of variables
+        String line;
+        String[] words;
+        String tokenize = "\\s*,\\s*";
 
-        word = str.split(tokenize);
-
-        for ( String key : word) {
-            System.out.printf("<%s  ,%s>\n", key, "1");
-        }
-        System.out.println("\n------------------------------------------------\n");
-        return word;
     }
 
     static void reducer(String[] input){
