@@ -18,7 +18,9 @@ public class Main {
         String line;
         String[] words;
         String tokenize = "\\s*,\\s*";
-
+        Pattern regexUrl = Pattern.compile(
+                "^https?://(www\\.)?[-a-zA-Z0-9]{1,256}\\.[a-zA-Z0-9]{1,6}\\b([a-zA-Z0-9()@:%_\\+.~#?&\\/=]*)$"
+        );
     }
 
     static void reducer(String[] input){
