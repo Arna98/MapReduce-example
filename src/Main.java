@@ -65,6 +65,11 @@ public class Main {
                 }
             }
             br.close();
+            // Save and write to final output file
+            for (String key : keyValue.keySet()) {
+                finalOutput.write(String.format("<%s, %d>\n", key, keyValue.get(key)));
+            }
+            finalOutput.close();
         } catch(IOException e) {
             e.printStackTrace();
         }
